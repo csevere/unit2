@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>photo_gallery</title>
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Acme|Amatic+SC|Cinzel|Gloria+Hallelujah|Lato|Libre+Baskerville|Lobster|Merriweather|Nova+Oval|Playfair+Display|Poppins|Ranga|Ubuntu" rel="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Righteous|Roboto|Russo+One|Shrikhand" rel="text/css">
+
+	<style type="text/css" media="screen">
+
+    #box{
+      background-color:rgba(255, 255, 255, 0.8);
+      box-sizing: border-box;
+      width: 95%;
+      display: inline-block;
+      float: left;
+      margin: 1em 1em 2em 1em;
+      padding: 1em 2em 1em 2em;
+      border-radius: 10px;
+
+    }
+
+    #header{
+      background-image: url(http://i2.wp.com/s3.amazonaws.com/citybuzz/2014/05/photos-georgia/30-photos-georgia-3.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 700px;
+      background-position: center center;
+      padding: .1em .1em .1em .1em;
+    }
+
+
+    #headertext{
+      color: blue;
+      font-family: "Open Sans", sans-serif;
+      font-size: 30px;
+      margin-left: 0;
+      text-align: center
+
+
+    }
+
+    #headertext1{
+      margin: 0 auto;
+      /*position: relative;*/
+      text-align: center;
+      top: 90px;
+      width: 50%;
+      bottom: 70px;
+      color: white;
+      font-size: 20px;
+      padding-left: 2em;
+      padding-bottom: 1em
+      font-family: "Open Sans", sans-serif;
+
+    }
+
+    #bottom img{
+      width: 19%;
+      postion: absolute;
+      padding top: 2em;
+      border: 1px solid black;
+
+
+    }
+
+
+</style>
+
+</head>
+
+<body>
+
+<div id ="header">
+  <div id ="box">
+    <div id="headertext">
+      <h1>PLACES TO VISIT IN GEORGIA</h1>
+    </div>
+  </div>
+
+    <div id="headertext1">
+        <h2>Come see what the Peach State has to offer!</h2>
+
+    <div id ="bottom">
+      <img src="./ga_pics/arabia_mnt.jpg" onclick="bigPic.src = this.src" />
+      <img src="./ga_pics/callaway_gardens.jpg" onclick="bigPic.src = this.src" />
+      <img src="./ga_pics/Etowah_Indian_Mounds.jpg" onclick="bigPic.src = this.src" />
+      <img src="./ga_pics/prov_state_canyon.jpg" onclick="bigPic.src = this.src" />
+      <img src="./ga_pics/wormsloe.jpg" onclick="bigPic.src = this.src" />
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>
