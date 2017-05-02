@@ -10,7 +10,9 @@
 			text-align: center;
 		}
 		#middle-section img{
-			width: 15%;
+/*image tag inside of the bottom section*/
+			width: 15% !important;
+			/*!important to override specific css*/
 			border: 4px solid #0f0;
 			/* border-width: 1px 5px 10px 20px; top, right, bottom, left */
 			/* border-width: 4px 10px 20px; Top, left and right, bottom */
@@ -19,9 +21,34 @@
 			/* border-style: solid; */
 			/* border-color:  #0f0; */
 		}
-		#bottom-section img{
+
+		 /*put bootstrap at the top of the page*/
+		div#bottom-section img{
 			width: 40%;
 		}
+
+		#bottom-section img{
+			width: 80% !important;
+		}
+
+		#bottom-section img{
+				width: 10% !important;
+		}
+
+		/*use . to specify a class*/
+		.caption{
+			font-size: 26px;
+			font-weight: bold;
+			text-shadow: 10px;
+			color: red;
+		}
+		div.caption{
+			color: blue;
+			border: solid 4px black;
+		}
+
+
+
 	</style>
 
 </head>
@@ -37,11 +64,21 @@
 		</div>
 		<!-- Middle -->
 		<div id="middle-section">
-			<img src="./ga_pics/arabia_mnt.jpg" onclick="bigPic.src = this.src" />
-			<img src="./ga_pics/callaway_gardens.jpg" onclick="bigPic.src = this.src" />
-			<img src="./ga_pics/Etowah_Indian_Mounds.jpg" onclick="bigPic.src = this.src" />
-			<img src="./ga_pics/prov_state_canyon.jpg" onclick="bigPic.src = this.src" />
+
+			<div class = "caption one">
+					This is a caption
+			</div>
+			<!-- can target both cause we have the class attribute -->
+			<div class = "caption two">
+					This is a caption
+			</div>
+
+			<img class = "one" src="./ga_pics/arabia_mnt.jpg" onclick="bigPic.src = this.src" />
+			<img class = "two" src="./ga_pics/callaway_gardens.jpg" style ="500px" width= "1000" onclick="bigPic.src = this.src" />
+			<img class = "three" src="./ga_pics/Etowah_Indian_Mounds.jpg" onclick="bigPic.src = this.src" />
+			<img class = "four" src="./ga_pics/prov_state_canyon.jpg" onclick="bigPic.src = this.src" />
 			<img src="./ga_pics/wormsloe.jpg" onclick="bigPic.src = this.src" />
+
 		</div>
 		<!-- Bottom -->
 		<div id="bottom-section">
