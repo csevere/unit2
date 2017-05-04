@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook Clone</title>
+    <link rel="stylesheet" type ="text/css" href="styles.css"/>
+    <link rel="stylesheet" type ="text/css" href="reset.css"/>
+
+  </head>
+
+
+<body>
+
+<!--Main page wrapper -->
+
+<div id="facebook-wrapper">
+
+    <!-- header to dontain header elements  -->
+    <div id="header">
+      <div id="header-inner">
+        <div id="left-header">
+          <div id= "fb-logo"></div>
+          <div id="fb-search">
+          <!-- plcaceholder allows text to disappear -->
+              <input type ="text" placeholder="Search Facebook"/>
+          </div>
+      </div>
+      <div id ="right-header">
+          <div id ="user-name" class ="fb-icons">Carla</div>
+          <div id ="home-updates" class ="fb-icons">Home <span class ="newfeeds">20+</span></div>
+          <div class = "fb-icons friends"></div>
+          <div class = "fb-icons messages"></div>
+          <div class = "fb-icons notifications"></div>
+          <div class = "fb-icons help-button"></div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    <div id="middle">
+      <div class = "status-header">
+          <ol class ="top-status-bar">
+          <!-- make sure to give unique names to classes and ids -->
+            <li class = "bar-items pencil">Add Photo</li>
+            <li class = "bar-items">Create a Post</li>
+            <li class = "bar-items video">Add Photo</li>
+            <li class = "bar-items">Live Video</li>
+          </ol>
+          <div class = "status-wrapper">
+            <input type ="text" placeholder ="What's on your mind?">
+          </div>
+      </div>
+      <div class="middle-box">
+          <span class ="box-items photo">
+            <img src="http://placehold.it/50x50"/>
+          </span>
+          <div class ="box-items">Jane Doe</div>
+          <div class ="box-items arrow"></div>
+          <span class ="box-items youtube">
+            <img src="http://placehold.it/70x70"/>
+          </span>
+          <div class = "box-items">Facebook Surpasses</div>
+          <div class = "box-items">www.youtube.com</div>
+          <div class = "box-items">Facebook surpasses one billion users as it tempts new markets</div>
+            <ol class = "box-bottom">
+                <li class = "b-bottom">Like</li>
+                <li class = "b-bottom">Comment</li>
+                <li class = "b-bottom">Share</li>
+                <li class = "b-bottom">11 minutes ago</li>
+            </ol>
+      </div>
+
+      <div class ="second-box">
+        <span class ="box-items photo">
+          <img src="http://placehold.it/50x50"/>
+        </span>
+        <span class ="box-items photo">
+          <img src="http://placehold.it/100x100"/>
+        </span>
+      </div>
+    </div>
+
+
+    <div id="content">
+      <div id="left">
+        <div class="left-profile">
+            <span class = "left-profile-image">
+                <img src="http://placehold.it/20x20"/>
+            </span>
+            <span class ="left-profile-name">Carla Severe</span>
+
+            <div class="toptwo-items">
+                <span id= "newsfeed-logo">
+                  <img src="./images/newsfeed_logo.jpeg"/>
+                </span>
+                <span class="top news">News Feed</span>
+
+                <div id= "messenger-logo">
+                  <span id ="top_message">Messenger</span>
+                </div>
+
+            </div>
+
+            <!-- <span class="shortcut-items"> -->
+              <div class="shortcut-header">SHORTCUTS</div>
+
+              <div class="shortcut-header profile">
+                  <img src="http://placehold.it/20x20"/>
+                  <span class="shortcut-header">C.S.Severe</span>
+              </div>
+
+
+
+              <span id= "calendar-logo">
+                <img src="./images/calendar_icon.png"/>
+                <span class="shortcut-header calendar">Shaky Beats</span>
+              </span>
+
+
+              <div id= "group-logo">
+                  <img src="./images/group_icon.png"/>
+                  <span class="shortcut-header group">Young Bloods</span>
+              </div>
+
+            <!-- </span> -->
+
+            <div class="explore-items">
+
+              <span class="explore-header">EXPLORE</span>
+
+              <div id= "calendar2-logo">
+                <img src="./images/calendar_icon.png"/>
+                  <span class="explore-header">Events</span>
+              </div>
+
+
+              <div id= "group2-logo">
+                <img src="./images/group_icon.png"/>
+                <span class="explore-header">Groups</span>
+              </div>
+
+
+
+              <div id= "pages-logo">
+                <img src="./images/pages_icon.jpeg"/>
+                <span class="explore-header">Pages</span>
+              </div>
+
+              <div id = "friends-logo">
+                <img src="./images/friends.jpg"/>
+                <span class="explore-header">Friends Lists</span>
+              </div>
+
+              <div id = "insights-logo">
+                <img src="./images/insights.png"/>
+                <span class="explore-header">Insights</span>
+              </div>
+
+            </div>
+
+
+            <div class="create-items">CREATE
+              <div class="create-header ad">Ad</div>
+              <span class="create-header pa">Page</span>
+              <span class="create-header gr">Group</span>
+              <span class="create-header ev">Event</span>
+              <span class="create-header fu">Fundraiser</span>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div id="right">
+      <div id="content-right">
+        <div id="right-stuff">
+          <div class="right-profile">
+              <span class = "left-profile-icon">
+                  <img src="http://placehold.it/20x20"/>
+              </span>
+              <span class ="left-profile-name">John Smith</span>
+
+              <div class="favorites-items">
+                <li class="favorites-header">News Feed</li>
+                <li class="favorites-header">Messenger</li>
+              </div>
+
+              <div class="shortcut-items">
+                <li class="shortcut-header">SHORTCUTS</li>
+                <li class="shortcut-header">C.S.Severe</li>
+                <li class="shortcut-header">Shaky Beats Festival</li>
+                <li class="shortcut-header">Young Bloods</li>
+              </div>
+
+              <div class="explore-items">
+                <li class="explore-header">EXPLORE</li>
+                <li class="explore-header">Events</li>
+                <li class="explore-header">Groups</li>
+                <li class="explore-header">Pages</li>
+                <li class="explore-header">Friends Lists</li>
+              </div>
+
+              <div class="create-items">
+                <li class="create-header">Ad</li>
+                <li class="create-header">Page</li>
+                <li class="create-header">Group</li>
+                <li class="create-header">Event</li>
+                <li class="create-header">Fundraiser</li>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

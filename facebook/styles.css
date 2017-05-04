@@ -1,0 +1,243 @@
+body{
+  line-height: 2;
+}
+
+
+#facebook-wrapper{
+	/* Main page styles here */
+}
+
+#header{
+	/* Facebook blue... */
+	background-color: #3B5998;
+	height: 30px;
+}
+
+#header-inner{
+	max-width: 900px;
+	margin: auto;
+	overflow: hidden;
+}
+
+#fb-logo,#fb-search{
+	float: left;
+	margin-left: 10px;
+}
+
+#fb-logo{
+	height: 24px;
+	width: 24px;
+	background-image: url('https://www.facebook.com/rsrc.php/v3/yu/r/UnZEsNz1oHl.png');
+	background-position: 0px -17px;
+}
+
+#fb-search input{
+	width: 350px;
+	height: 20px;
+}
+
+#right-header{
+	float: right;
+}
+
+.fb-icons{
+	float: left;
+	color: #fff;
+	font-size: 12px;
+	line-height: 30px;
+	height: 24px;
+	min-width: 24px;
+	margin-left: 10px;
+}
+
+.fb-icons.friends, .fb-icons.messages, .fb-icons.notifications{
+	background-image: url('https://www.facebook.com/rsrc.php/v3/yU/r/ujRgtpgUFf7.png')
+}
+
+.fb-icons.friends{
+	background-position: 0px -11px;
+}
+
+.fb-icons.messages{
+	background-position: 0px -11px;
+}
+
+.fb-icons.notifications{
+	background-position: 0px -11px;
+}
+
+#home-updates .new-feeds{
+	background: rgba(0,0,0,.25);
+	border-radius: 2px;
+	font-size: 10px;
+}
+
+#content{
+	/* Must have overflow: hidden so that the floated children pass their height up */
+	overflow: hidden;
+	margin-top: 20px;
+  float: left;
+}
+
+#left{
+	width: 79%;
+	float: left;
+  margin-left: 232px;
+  line-height: 2;
+}
+
+.left-profile .left-profile-name {
+	vertical-align: top;
+}
+.left-profile {
+  max-width: 126px;
+  position: relative;
+  width: 79%;
+  font-size: 12px;
+  /*remove list bullets*/
+  list-style-type: none;
+  font-family: 'San Francisco', Helvetica, Arial, san-serif;
+
+}
+/*
+.favorites-header{
+	margin-left: 1em;
+}
+
+.favorites-item{
+	margin-left: 15px;
+}*/
+
+#newsfeed-logo{
+  height: 24px;
+	width: 24px;
+
+}
+
+#messenger-logo{
+  height: 24px;
+  width: 24px;
+  background-image: url('https://www.facebook.com/rsrc.php/v3/yU/r/ujRgtpgUFf7.png');
+  background-position: 1px -265px;
+
+}
+
+
+
+}
+#group2-logo{
+  height: 24px;
+  width: 24px;
+  background-image: url('https://www.facebook.com/rsrc.php/v3/yU/r/ujRgtpgUFf7.png');
+  background-position: -32px 8px;
+
+}
+
+.shortcut-header.group{
+  position: relative;
+  left:-1px;
+
+}
+
+#top_message{
+    /*vertical-align: top;*/
+    position:relative;
+    left: 28px;
+}
+
+#calendar-logo, #calendar2-logoimg{
+  height: 20px;
+	width: 20px;
+
+}
+
+#group-logo img{
+  height: 20px;
+  width: 20px;
+
+
+}
+
+/*shortcut-header group*/
+
+
+
+#middle{
+	width: 34%;
+	float: right;
+	border-left: 1px #cacaca solid;
+	border-right: 1px #cacaca solid;
+  margin-right: 499px;
+}
+
+.status-header{
+	list-style-type: none;
+  margin-left: 0px;
+  border-bottom: 1px #cacaca solid;
+  diplay: block;
+
+}
+
+.bar-items{
+    text-align: left;
+    /*width: 150px;*/
+    height: 39px;
+    font-size: 12px;
+    float: left;
+}
+
+.status-wrapper input{
+	width: 454px;
+  height: 40px;
+
+}
+
+
+#right{
+	width: 45%;
+	float: right;
+  margin-top: -50px;
+  line-height: 2;
+  height: 847px;
+}
+
+
+#right-stuff{
+	/* Must have overflow: hidden so that the floated children pass their height up */
+	overflow: hidden;
+	margin-top: -424px;
+  width: 105px;
+  height: 462px;
+  float: right;
+  text-align: left;
+  margin-right: 252px;
+  margin-left: 0px;
+  border-right: 1px #cacaca solid;
+  margin-bottom: 0px;
+  margin-top: -424px;
+  list-style-type: none;
+  font-size: 12px;
+  font-family: 'San Francisco', Helvetica, Arial, san-serif;
+}
+
+.right-profile{
+  margin-bottom: 0px;
+  position: absolute;
+  right: 232px;
+  margin-right: 0px;
+  width: 20%;
+  bottom: 20px;
+
+
+
+}
+
+#content-right{
+  margin-top: -17px;
+  float: right;
+}
+
+}
+.right-profile{
+
+}
