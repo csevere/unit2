@@ -10,6 +10,10 @@
           border-bottom: 2px solid black;
         }
 
+        .header2{
+          border-bottom: 1px solid black;
+        }
+
         .account{
             position:relative;
             left: 115px;
@@ -35,6 +39,9 @@
             position:relative;
             left: -7px;
             word-spacing: 19px;
+            font-weight: bold;
+            font-size: 14px;
+
 
         }
 
@@ -46,7 +53,15 @@
             position: relative;
             left:137px;
             word-spacing: 35px;
+            font-weight: bold;
+            font-size: 16px;
 
+
+        }
+
+        .container2{
+          position: relative;
+          top: 22px;
         }
 
         .main{
@@ -57,7 +72,7 @@
             float:left;
             margin-bottom: 25px;
             margin-left: 39px;
-            font-size: 10px;
+
         }
 
         .info1, .info2, .info3{
@@ -87,18 +102,64 @@
             text-align:justify;
         }
 
+        .bottom{
+          background-color: whitesmoke;
+          position: relative;
+          top: 40px;
+        }
 
+        .blurb{
+          position: relative;
+          left:40px;
+          font-size: 12px;
+        }
 
+        .blurb2{
+          position: relative;
+          left:40px;
+          font-size: 12px;
+          top: -26px;
+        }
 
+        .second-row{
+          position:relative;
+          top:40px;
+          background-color: whitesmoke;
+        }
 
+        .tnail{
+          position:relative;
+          top: -26px;
+        }
 
+        .menu-list, .account-actions a:link{
+            color: blue;
 
+        }
 
+        .menu-list, .account-actions a:visited{
+            text-decoration: underline;
 
+        }
 
+        .thirdrow{
+          position: relative;
+          top: 49px;
+          left: -13px;
+          font-weight: bold;
+          font-size: 16px;
+        }
 
+        @media only screen and (max-width: 768px) {
+          #left-rail{
+            width: 100%;
+          }
+          #right-rail{
+            width:100%;
+            height: 100px;
+            margin-top: 300px;
 
-
+          }
 
     </style>
 
@@ -124,9 +185,10 @@
 
                     <div class = "menu-list">
                         <ol>
-                              <span>Home</span>
-                              <span>Videos</span>
-                              <span>Channels</span>
+                              <span><a href="default.asp" target="_blank">Home</a></span>
+                              <span><a href="default.asp" target="_blank">Videos</a></span>
+                              <span><a href="default.asp" target="_blank">Channels</a></span>
+
                         </ol>
                     </div>
 
@@ -140,7 +202,10 @@
 
               <div class = "col-md-4 account">
                     <div class = "account-actions">
-                      Create Account or Sign-in
+                      <span><a href="default.asp" target="_blank">Create Account</a></span>
+                      or
+                      <span><a href="default.asp" target="_blank">Sign-in</a></span>
+
                     </div>
 
                     <div class = "account-places">
@@ -157,10 +222,9 @@
           </div>
 
           <div class = "container2">
-            <div class = "row">
+            <div class = "row lgmain">
                   <div class = "col-md-9 main">
                       <h4>Featured</h4>
-                      <hr/>
 
                       <div class = "col-md-7 mainpic">
                         <img src="http://placehold.it/500x350"/>
@@ -205,28 +269,128 @@
                     <p>Lorem ipsum dolo sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Lorem ipsum dolo sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et.Lorem ipsum dolo sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et.
                     </p>
 
+                  </div>
+             </div>
+          </div>
+
+
+          <div class = "container3">
+              <div class = "row bottom">
+
+                  <div class = "col-lg-12 first-row">
+                    <h4>More Videos</h4>
+
+                    <div class = "col-sm-1">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+                    <div class = "col-sm-2 blurb">
+                       <div>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </div>
+                    </div>
+
+
+                    <div class = "col-sm-1">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+                    <div class = "col-sm-2 blurb">
+                       <p>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </p>
+                    </div>
+
+                    <div class = "col-sm-1">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+
+                    <div class = "col-sm-2 blurb">
+                       <p>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </p>
+                    </div>
+
+                    <div class = "col-sm-1">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+                    <div class = "col-sm-2 blurb">
+                       <p>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </p>
+                    </div>
+                  </div>
+
+
+                  <div class = "col-lg-12 second-row">
+
+                    <div class = "col-sm-1 tnail">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+                    <div class = "col-sm-2 blurb2">
+                       <div>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </div>
+                    </div>
+
+
+                    <div class = "col-sm-1 tnail">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+                    <div class = "col-sm-2 blurb2">
+                       <p>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </p>
+                    </div>
+
+                    <div class = "col-sm-1 tnail">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+
+                    <div class = "col-sm-2 blurb2">
+                       <p>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </p>
+                    </div>
+
+                    <div class = "col-sm-1 tnail">
+                      <img src="http://placehold.it/125x125"/>
+                    </div>
+
+                    <div class = "col-sm-2 blurb2">
+                       <p>
+                         Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                         sed do.
+                       </p>
+                    </div>
 
 
                   </div>
 
+                  <div class = "col-sm-6 thirdrow">
+                    <span>YouTube is a Trademark of YouTube.com
+                    </span>
+                  </div>
 
-
-
-
-
-
-
-
-
-
-
-             </div>
+              </div>
 
           </div>
+
 
 
 
@@ -262,6 +426,8 @@
 
 
       </div>
+
+
 
 
 
