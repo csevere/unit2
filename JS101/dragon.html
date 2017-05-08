@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fight the Dragon</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type = "text/css" media ="screen">
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+<div id = "game-wrapper">
+    <div class = "text-center"><img src = "./dragon-assets/dragon.png" name = "dragonImage"/></div>
+    <div class = "text-center">You have encoutered a terrifying dragon. Do you fight?</div>
+    <div id = "health">Health</div>
+
+    <div class = "text-center">
+        <button class = "btn btn-default" onclick ="rollDice();">Fight!</button>
+    </div>
+
+    <div class = "text-center">
+      <!-- dragon-assets/d1.gif placeholders show what's on the screen first -->
+      <img src = "dragon-assets/d1.gif" name = "die1Image"/>
+      <img src = "dragon-assets/d1.gif" name = "die2Image"/>
+
+    </div>
+
+
+</div>
+
+
+
+
+<script type = "text/javascript">
+
+    var health = 10;
+
+    function rollDice(){
+    //   console.log("The user clicked the Fight button") //sanity check
+    // }
+        //get a random number between 1 and 6
+        var randomDie1 = Math.ceil(Math.random() * 6);
+        var randomDie2 = Math.ceil(Math.random() * 6);
+        // console.log(randomeDie1);
+        // console.log(randomeDie2);
+        var die1 = "dragon-assets/d" + randomDie1 + ".gif";
+        var die2 = "dragon-assets/d" + randomDie2 + ".gif";
+        document.images.die1Image.src = die1;
+        document.images.die2Image.src = die2;
+
+        if(randomDie1 + randomDie2 > 8){
+            document.images.dragonImage.src = "https://s-media-cache-ak0.pinimg.com/736x/9c/86/3c/9c863c8728b424e22314f15d036fa2e0.jpg"; //have to define names above
+            document.getElementById('message').innerHTML = "You have defeated the dragon";
+        }else{
+            document.images.dragonImage.src= "https://media2.giphy.com/media/zXroL4pngSe0o/giphy.gif";
+            document.getElementById('message').innerHTML = "You have are toast";
+        }
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

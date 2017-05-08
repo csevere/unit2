@@ -1,0 +1,153 @@
+<script type = "text/javascript">
+
+// Exercises:
+// 1.Given a number between 0 and 6 representing the days of the week,
+// print "Go to work." if it's a work day and "Sleep in." if it's a weekend day.
+// You can set up an array for the days of the week, or for extra credit,
+// you can check out the JS Date object here).
+
+var weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+]
+
+var numDay = prompt("Please enter a day.");
+var inputDay = numDay;
+
+if(inputDay == weekDays[1]){
+    console.log("Go to work");
+}else if(inputDay == weekDays[2]){
+    console.log("Go to work");
+}else if(inputDay == weekDays[3]){
+    console.log("Go to work");
+}else if(inputDay == weekDays[4]){
+    console.log("Go to work");
+
+}else if(inputDay == weekDays[5]){
+    console.log("Go to work");
+
+}else if(inputDay == weekDays[0] && inputDay == weekDay[6]){
+    console.log("Sleep in");
+}else if(isNaN(inputAsNumber)){
+    console.log("You entered invalid data")
+}
+
+// for loop:
+// param1. init variable to use as counter
+// param2. decide if loop should keep going
+// param3. what to do at the end of the loop at end of each iteratation
+
+//complete problem with for loop
+
+for(let i=0; i<weekdays.length;i++){
+    if (dayofWeek == weekdays[i]){
+          if((i == 0)) || (i == 6)){
+              console.log("Sleep in!")
+          }else{
+              console.log("Go to work!")
+          }
+    }
+}
+
+
+
+
+// 2. Given a month number, between 1 and 12,
+// and a year, print the number of days in that
+// month - accounting for leap years.
+
+
+
+
+
+// 3. Given the amount of a bill as a number, and a level of service
+// - which can be "good", "fair", or "bad", print the total bill with
+// the tip included. The amount of tip given for each level of service is defined by:
+//
+// "good" -> 20%
+// "fail" -> 15%
+// "bad"  -> 10%
+//
+// Extra: Add to "Tip Calculator"...you are also given the number of people to divide
+// the total into. Print the amount for each person to pay.
+//
+var userAmount = prompt("Please enter an amount.");
+var billAmount = parseInt(userAmount);
+var tipPercent
+var service = prompt("Please enter service level.")
+var custService = service
+
+serviceOptions = [
+    "bad",
+    "fair",
+    "good"
+]
+
+if(custService === 'bad'){
+    tipPercent = billAmount * 0.1;
+    console.log(tipPercent + billAmount);
+} else if(custService === 'fair'){
+    tipPercent = billAmount * 0.15;
+    console.log(tipPercent + billAmount);
+} else if(custService === 'good'){
+    tipPercent = billAmount * 0.2;
+    console.log(tipPercent + billAmount);
+}else {
+  console.log("That service level is not one of the options");
+  var service =  prompt("Enter a valid service level: ");
+
+}
+
+// String indexOf() Method
+var dayIndexInArray = weekdays.indexOf(dayofWeek);
+console.log(dayIndexInArray)
+if(dayIndexInArray == 0) || (dayIndexInArray == 6){
+    console.log("Sleep in");
+}else if (dayIndexInArray >= 1) && (dayIndexInArray <=5){
+    console.log("Go to work");
+}else{
+    console.log("Invalid input");
+}
+
+
+
+
+
+
+
+
+function tipAmount(bill, service){
+  var tipPercent;
+
+  while(true){
+    if(service === 'bad'){
+        tipPercent = bill * 0.1;
+        return tipPercent;
+    } else if(service === 'fair'){
+        tipPercent = bill * 0.15;
+        return tipPercent;
+    } else if(service === 'good'){
+        tipPercent = bill * 0.2;
+        return tipPercent;
+    }else {
+      console.log("That service level is not one of the options");
+      var service =  prompt("Enter a valid service level: ");
+
+    }
+
+
+
+
+
+
+  }
+}
+
+
+
+</script>
