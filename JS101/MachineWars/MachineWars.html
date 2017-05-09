@@ -26,7 +26,7 @@
 
       .header{
           position: fixed;
-          left: 954px;
+          left: 300px;
           color: white;
           text-shadow: 0 1px 0 #ccc,
                        0 2px 0 #c9c9c9,
@@ -68,17 +68,18 @@
 
       #dice{
         position: relative;
-        top: 80px;
+        top: 60px;
       }
 
       #alien{
-        position: relative;
+        position: static;
         top: 80px;
+        z-index: -1;
       }
 
       #buttons{
         position: relative;
-        top: 60px;
+        top: 29px;
       }
 
 
@@ -89,6 +90,10 @@
 
 </head>
 <body>
+
+      <audio controls>
+        <source src="./Images/illusions.mp3" type="audio/mpeg">
+      </audio>
 
       <div id ="background-wrap">
           <div class = "img-center">
@@ -107,15 +112,20 @@
             Health
             <progress id = "userHealth" value = "500" max = "500"></progress>
             Action Points
-            <progress id = "actionPoints" value = "50" max = "50"></progress>
+            <progress id = "actionPoints" value = "100" max = "100"></progress>
             Aliens' Health
-            <progress id = "alienHealth" value = "1000" max = "1000">Alien HP</progress>
+            <progress id = "alienHealth" value = "1000" max = "1000"></progress>
+            Aliens' Action Points
+            <progress id = "a_actionPoints" value = "30" max = "30"></progress>
           </div>
 
           <div id = "buttons" class = "text-center">
             <button class = "btn btn-default" onclick = "rollDice();">Fight!</button>
             <button class = "btn btn-default" onclick = "callHelp();">Call for Help!</button>
             <button class = "btn btn-default" onclick = "escapeFight();">Run Away!</button>
+            <button class = "btn btn-default" onclick = "staminaPack();">Use Stamina Pack!</button>
+            <button class = "btn btn-default" onclick = "healthPack();">Use Health Pack!</button>
+
           </div>
 
 
@@ -143,9 +153,16 @@
      var alienHealth = document.getElementById("alienHealth");
      var actionPoints = document.getElementById("actionPoints");
      var userHealth = document.getElementById("userHealth");
+     var a_actionPoints = document.getElementById("a_actionPoints");
+
+     actionPoints.value = 100;
+     a_actionPoints.value = 30;
+     alienHealth.value = 1000;
+     userHealth.value = 500;
+     //
 
 
-    function rollDice(){
+    function rollDice(){ //broke
         //   console.log("The user clicked the Fight button") //sanity check
         //get a random number between 1 and 6
         var randomDie1 = Math.ceil(Math.random() * 6);
@@ -157,7 +174,13 @@
         document.images.die1Image.src = die1;
         document.images.die2Image.src = die2;
     // }
-        while(actionPoints.value > 0){
+    //     actionPoints.value = 100;
+    //     a_actionPoints.value = 30;
+    //     alienHealth.value = 1000;
+    //     userHealth.value = 500;
+    // //
+
+        while((actionPoints.value > 0) && (a_actionPoints.value > 0)){
 
           if(randomDie1 + randomDie2 > 8){
               alienHealth.value -= 50;
@@ -165,19 +188,50 @@
               document.images.alienImage.src = "./Images/fighting_thealien.jpg"; //have to define names above
               document.getElementById('message').innerHTML = "Keep giving them hell!";
 
+              console.log(alienHealth.value,actionPoints.value);
 
-          }else if ((userHealth.value <= 0) && (actionPoints.value <=0)){
-              document.images.alienImage.src = "https://uploadvr.com/wp-content/uploads/2015/04/TheHum_011.jpg"; //have to define names above
-              document.getElementById('message').innerHTML = "GAME OVER! The Aliens are now experimenting on your corpse";
-
-
-          }else{
-              userHealth.value -= 10;
+          }else if(randomDie1 + randomDie1 < 8){
+              userHealth.value -= 30;
+                a_actionPoints.value -= 5;
               document.images.alienImage.src= "./Images/alien_winning.jpg";
               document.getElementById('message').innerHTML = "You're getting attacked!";
+              console.log(userHealth.value,a_actionPoints.value);
+
+
+          }else if(randomDie1 + randomDie1 == 12){
+              userHealth.value += 30
+              alienHealth.value -= 75;
+              document.images.alienImage.src = "./Images/fighting_thealien.jpg";
+              document.getElementById('message').innerHTML = "The aliens missed! You got a chance to replenish your health and attack!";
+              console.log(userHealth.value,alienHealth.value);
+
+          }else if(randomDie1 + randomDie1 == 2){
+              userHealth.value -= 100;
+              actionPoints.value -= 10;
+              document.images.alienImage.src = "./Images/alien_winning.jpg";
+              document.getElementById('message').innerHTML = "You missed! You lost health and action points!";
+              console.log(userHealth.value,actionPoints.value);
+
+          }else if(alienHealth.value <= 0){
+            document.images.alienImage.src = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
+            document.getElementById('message').innerHTML = "You defeated the aliens and saved Earth!";
+
+          }else if((userHealth.value == 0) || (actionPoints.value <=0)){
+              document.images.alienImage.src = "./Images/you_died.jpg"; //have to define names above
+              document.getElementById('message').innerHTML = "GAME OVER! The Aliens are now experimenting on your corpse.";
+
+          }else if(a_actionPoints.value <= 10){
+                a_actionPoints.value += 10;
+
+          }else if(a_actionPoints.value == 0){
+              document.images.alienImage.src = "./Images/rejoice.jpg";
+              document.getElementById('message').innerHTML = "The Aliens ran away! Rejoice!";
           }
+
+          break;
         }
-    }
+      }
+
 
     function escapeFight(){
         document.images.alienImage.src= "http://best-sci-fi-books.com/wp-content/uploads/2014/08/alien_invasion_600.jpg";
@@ -185,14 +239,53 @@
 
     }
 
-    function callHelp(){
-        alienHealth.value -= 400;
-        actionPoints.value -= 25;
-        document.images.alienImage.src= "./Images/woman_fighting.jpg";
-        document.getElementById('message').innerHTML = "Die alien scum! You're welcome. Don't call again.";
+    function callHelp(){ //need a while loop for when action points are above 35
+
+        // actionPoints.value = 100;
+        // a_actionPoints.value = 30;
+        // alienHealth.value = 1000;
+        // userHealth.value = 500;
+      //
+        if(actionPoints.value >= 35){
+            alienHealth.value -= 400;
+            actionPoints.value -= 45;
+            document.images.alienImage.src= "./Images/woman_fighting.jpg";
+            document.getElementById('message').innerHTML = "Die, alien scum! You're welcome. Don't call again!";
+            console.log(alienHealth.value,actionPoints.value);
+        }else if(alienHealth.value == 0){
+          document.images.alienImage.src = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
+          document.getElementById('message').innerHTML = "You defeated the aliens and saved Earth!";
+        }else{
+            document.getElementById('message').innerHTML = "You don't have enough AP!";
+        }
+    }
+
+
+    function staminaPack(){
+        actionPoints.value = 50;
+        if(actionPoints.value <= 15){
+            actionPoints.value += 15;
+            document.getElementById('message').innerHTML = "You gained 15 Action Points!";
+            console.log(actionPoints.value);
+        }else{
+            document.getElementById('message').innerHTML = "You have enough AP!";
+        }
+    }
+
+    function healthPack(){
+      userHealth.value = 500;
+      if(userHealth.value <= 250){
+          userHealth.value += 50;
+          document.getElementById('message').innerHTML = "You gained 50 Health Points!";
+          console.log(userHealth.value);
+      }else{
+            document.getElementById('message').innerHTML = "You have enough Health!";
+
+      }
 
 
     }
+
 
 
 
