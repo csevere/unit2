@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheMachineWars</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type = "text/css" media ="screen">
+
+      *{
+        color:white;
+      }
+
+      #bg{
+        position: fixed;
+        top: 0;
+        left: 0;
+        /*preserve aspect ration */
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+
+
+      }
+
+
+
+      .header{
+          position: fixed;
+          left: 954px;
+          color: white;
+          text-shadow: 0 1px 0 #ccc,
+                       0 2px 0 #c9c9c9,
+                       0 3px 0 #bbb,
+                       0 4px 0 #b9b9b9,
+                       0 5px 0 #aaa,
+                       0 6px 1px rgba(0,0,0,.1),
+                       0 0 5px rgba(0,0,0,.1),
+                       0 1px 3px rgba(0,0,0,.3),
+                       0 3px 5px rgba(0,0,0,.2),
+                       0 5px 10px rgba(0,0,0,.25),
+                       0 10px 10px rgba(0,0,0,.2),
+                       0 20px 20px rgba(0,0,0,.15);
+        }
+      }
+
+      #health {
+          float: right;
+          margin-right: 394px;
+          font-size: 20px;
+      }
+
+      #userHealth, #alienHealth{
+          color: black;
+      }
+
+      #message{
+          font-style: 20px;
+          background: black;
+          color: white;
+          position: relative;
+      }
+
+      #bars{
+          position: relative;
+          background: green;
+
+      }
+
+      #dice{
+        position: relative;
+        top: 80px;
+      }
+
+      #alien{
+        position: relative;
+        top: 80px;
+      }
+
+      #buttons{
+        position: relative;
+        top: 60px;
+      }
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+      <div id ="background-wrap">
+          <div class = "img-center">
+              <img src = "./Images/spaceship_interior.jpg" id = "bg" alt ="" />
+          </div>
+
+          <div class = "header"><h1>ALIEN BATTLECRAFT</h1></div>
+          <div id = "alien" class = "text-center"><img src = "./Images/scaryaliens.jpeg" name = "alienImage"/></div>
+
+
+          <div id = "message" div class = "text-center">Terrifying aliens have approached you! Fight or Run Away?</div>
+
+
+          <!-- making the health bar for hero and aliens -->
+          <div id = "bars" class = "text-center">
+            Health
+            <progress id = "userHealth" value = "500" max = "500"></progress>
+            Action Points
+            <progress id = "actionPoints" value = "50" max = "50"></progress>
+            Aliens' Health
+            <progress id = "alienHealth" value = "1000" max = "1000">Alien HP</progress>
+          </div>
+
+          <div id = "buttons" class = "text-center">
+            <button class = "btn btn-default" onclick = "rollDice();">Fight!</button>
+            <button class = "btn btn-default" onclick = "callHelp();">Call for Help!</button>
+            <button class = "btn btn-default" onclick = "escapeFight();">Run Away!</button>
+          </div>
+
+
+          <div id = "dice" class = "text-center">
+            <!-- dragon-assets/d1.gif placeholders show what's on the screen first -->
+            <img src = "dragon-assets/d1.gif" name = "die1Image"/>
+            <img src = "dragon-assets/d1.gif" name = "die2Image"/>
+          </div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+<script type = "text/javascript">
+     var alienHealth = document.getElementById("alienHealth");
+     var actionPoints = document.getElementById("actionPoints");
+     var userHealth = document.getElementById("userHealth");
+
+
+    function rollDice(){
+        //   console.log("The user clicked the Fight button") //sanity check
+        //get a random number between 1 and 6
+        var randomDie1 = Math.ceil(Math.random() * 6);
+        var randomDie2 = Math.ceil(Math.random() * 6);
+        // console.log(randomeDie1);
+        // console.log(randomeDie2);
+        var die1 = "dragon-assets/d" + randomDie1 + ".gif";
+        var die2 = "dragon-assets/d" + randomDie2 + ".gif";
+        document.images.die1Image.src = die1;
+        document.images.die2Image.src = die2;
+    // }
+        while(actionPoints.value > 0){
+
+          if(randomDie1 + randomDie2 > 8){
+              alienHealth.value -= 50;
+              actionPoints.value -= 5;
+              document.images.alienImage.src = "./Images/fighting_thealien.jpg"; //have to define names above
+              document.getElementById('message').innerHTML = "Keep giving them hell!";
+
+
+          }else if ((userHealth.value <= 0) && (actionPoints.value <=0)){
+              document.images.alienImage.src = "https://uploadvr.com/wp-content/uploads/2015/04/TheHum_011.jpg"; //have to define names above
+              document.getElementById('message').innerHTML = "GAME OVER! The Aliens are now experimenting on your corpse";
+
+
+          }else{
+              userHealth.value -= 10;
+              document.images.alienImage.src= "./Images/alien_winning.jpg";
+              document.getElementById('message').innerHTML = "You're getting attacked!";
+          }
+        }
+    }
+
+    function escapeFight(){
+        document.images.alienImage.src= "http://best-sci-fi-books.com/wp-content/uploads/2014/08/alien_invasion_600.jpg";
+        document.getElementById('message').innerHTML = "The Aliens have won! You have failed the human race, coward!";
+
+    }
+
+    function callHelp(){
+        alienHealth.value -= 400;
+        actionPoints.value -= 25;
+        document.images.alienImage.src= "./Images/woman_fighting.jpg";
+        document.getElementById('message').innerHTML = "Die alien scum! You're welcome. Don't call again.";
+
+
+    }
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
