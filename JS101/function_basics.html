@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions</title>
+
+    <script type = "text/javascript">
+
+    // the document.getElementbyId is considered null
+    // matters where you put the script tag; in the body
+    // document.getElementById("main").innerHTML = "The text has been replaced!"
+
+    function callMe(bool){
+        console.log("Hello, from inside of callMe!")
+        return bool;
+    }
+
+    function runFunction(){
+
+        randomNum = Math.random();
+        if(randomNum > .5){
+            var arg = true;
+        }else{
+            var arg = false;
+        }
+        var num = 5;
+        console.log(num);
+        var theBoolean = callMe(arg);
+        if(theBoolean){
+            console.log("Boolean is true")
+        }else{
+            console.log("Boolean is false")
+        }
+        console.log(num);
+
+    }
+    var num = 2; 
+    console.log(num);
+
+    </script>
+
+
+
+
+
+  </head>
+  <body>
+    <h1></h1>
+
+    <div id = "main">
+      Replace this text
+      <button onclick ="runFunction();">Click Me</button>
+    </div>
+
+
+
+
+
+  </body>
+
+
+</html>

@@ -1,0 +1,82 @@
+<script type = "text/javascript">
+
+// this is an empty array; square brackets = array
+// var students = [];
+
+// var name = "Rob"
+// console.log(student.name) >> will print undefined
+
+//This is an empty object! curly braces = object
+var student = {};
+// var sstudent;
+
+//Objects have properties or keys
+// console.log(student.name);
+student.name = "Hayes";
+//mispellings error message: cannot read property name of undefined; object is unefined
+// console.log(student.name);
+student.age = 27;
+console.log(student)
+
+student2 = {
+    name: "Stephen",
+    profession: "Student",
+    language: "Javascript"
+
+
+}
+
+student3 = {
+    name: "Drew",
+    //make an array  below
+    friends: [
+      "YingRong",
+      "Carla",
+      "Daniel"
+    ],
+    sayHello: function(nameofFriend){
+        console.log("Hello, " + nameofFriend)  //attributes
+    }, //properties must be separated by commas
+
+    addFriend: function(nameofFriend){
+        this.friends.push(nameofFriend); //this has a friends property .push to add object to array
+    }
+
+}
+
+function addFrined(object, nameofFriend){
+    object.friends.push(nameofFriend);
+
+}
+
+console.log(student3);
+console.log(student3.friends[1])
+student3.sayHello("Chad");
+student3.sayHello("Merilee");
+//passing friend from list
+student3.sayHello(student3.friends[0]);
+student3.addFriend("Shane");
+
+student3.friends.push("Shane"); //does the same thing as above
+// addFriend(student3, "Shane");
+
+var propName = "friends";
+console.log(student3[propName]); //bracket notation opposed to dot notation
+
+students = []
+// students.push(student);
+// students.push(student2);
+// students.push(student3);
+students = [student, student2, student3]
+console.log(students);
+
+console.log(students[2].name)
+console.log(students[2].friends[2])
+students[2].sayHello();
+
+
+
+
+
+
+</script>
