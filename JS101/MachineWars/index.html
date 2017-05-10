@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheMachineWars</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type = "text/css" media ="screen">
+
+      *{
+        color:white;
+      }
+
+      #bg{
+        position: fixed;
+        top: 0;
+        left: 0;
+        /*preserve aspect ration */
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+
+
+      }
+
+
+
+      .header{
+          position: fixed;
+          left: 300px;
+          color: white;
+          text-shadow: 0 1px 0 #ccc,
+                       0 2px 0 #c9c9c9,
+                       0 3px 0 #bbb,
+                       0 4px 0 #b9b9b9,
+                       0 5px 0 #aaa,
+                       0 6px 1px rgba(0,0,0,.1),
+                       0 0 5px rgba(0,0,0,.1),
+                       0 1px 3px rgba(0,0,0,.3),
+                       0 3px 5px rgba(0,0,0,.2),
+                       0 5px 10px rgba(0,0,0,.25),
+                       0 10px 10px rgba(0,0,0,.2),
+                       0 20px 20px rgba(0,0,0,.15);
+        }
+      }
+
+      #health {
+          float: right;
+          margin-right: 394px;
+          font-size: 20px;
+      }
+
+      #userHealth, #alienHealth{
+          color: black;
+      }
+
+      #message{
+          font-style: 20px;
+          background: black;
+          color: white;
+          position: relative;
+      }
+
+      #bars{
+          position: relative;
+          background: green;
+
+      }
+
+      #dice{
+        position: relative;
+        top: 60px;
+      }
+
+      #alien{
+        position: static;
+        top: 80px;
+        z-index: -1;
+      }
+
+      #buttons{
+        position: relative;
+        top: 29px;
+      }
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+      <audio controls>
+        <source src="./Images/illusions.mp3" type="audio/mpeg">
+      </audio>
+
+      <div id ="background-wrap">
+          <div class = "img-center">
+              <img src = "./Images/spaceship_interior.jpg" id = "bg" alt ="" />
+          </div>
+
+          <div class = "header"><h1>ALIEN BATTLECRAFT</h1></div>
+          <div id = "alien" class = "text-center"><img src = "./Images/scaryaliens.jpeg" name = "alienImage"/></div>
+
+
+          <div id = "message" div class = "text-center">Terrifying aliens have approached you! Fight or Run Away?</div>
+
+
+          <!-- making the health bar for hero and aliens -->
+          <div id = "bars" class = "text-center">
+            Health
+            <progress id = "userHealth" value = "500" max = "500"></progress>
+            Action Points
+            <progress id = "actionPoints" value = "100" max = "100"></progress>
+            Aliens' Health
+            <progress id = "alienHealth" value = "1000" max = "1000"></progress>
+            Aliens' Action Points
+            <progress id = "a_actionPoints" value = "30" max = "30"></progress>
+          </div>
+
+          <div id = "buttons" class = "text-center">
+            <button class = "btn btn-default" onclick = "rollDice();">Fight!</button>
+            <button class = "btn btn-default" onclick = "callHelp();">Call for Help!</button>
+            <button class = "btn btn-default" onclick = "escapeFight();">Run Away!</button>
+            <button class = "btn btn-default" onclick = "staminaPack();">Use Stamina Pack!</button>
+            <button class = "btn btn-default" onclick = "healthPack();">Use Health Pack!</button>
+
+          </div>
+
+
+          <div id = "dice" class = "text-center">
+            <!-- dragon-assets/d1.gif placeholders show what's on the screen first -->
+            <img src = "dragon-assets/d1.gif" name = "die1Image"/>
+            <img src = "dragon-assets/d1.gif" name = "die2Image"/>
+          </div>
+
+
+
+      </div>
+
+
+
+
+
+<script type = "text/javascript">
+
+     var alienHealth = document.getElementById("alienHealth");
+     var actionPoints = document.getElementById("actionPoints");
+     var userHealth = document.getElementById("userHealth");
+     var a_actionPoints = document.getElementById("a_actionPoints");
+
+     actionPoints.value = 100;
+     a_actionPoints.value = 30;
+     alienHealth.value = 1000;
+     userHealth.value = 500;
+     //
+
+
+    function rollDice(){
+        //   console.log("The user clicked the Fight button") //sanity check
+        //get a random number between 1 and 6
+        var randomDie1 = Math.ceil(Math.random() * 6);
+        var randomDie2 = Math.ceil(Math.random() * 6);
+        // console.log(randomeDie1);
+        // console.log(randomeDie2);
+        var die1 = "dragon-assets/d" + randomDie1 + ".gif";
+        var die2 = "dragon-assets/d" + randomDie2 + ".gif";
+        document.images.die1Image.src = die1;
+        document.images.die2Image.src = die2;
+    // }
+    //     actionPoints.value = 100;
+    //     a_actionPoints.value = 30;
+        alienHealth.value = 5;
+    //     userHealth.value = 500;
+  // //
+        if(actionPoints.value < 0){
+            userHealth.value -=25
+            document.images.alienImage.src= "./Images/alien_winning.jpg";
+            document.getElementById('message').innerHTML = "You don't have any action points! The aliens attacked you for 25 health points! Use a Stamina Pack!";
+
+
+        }else if(randomDie1 + randomDie2 >= 8){
+            alienHealth.value -= 50;
+            actionPoints.value -= 5;
+            document.images.alienImage.src = "./Images/fighting_thealien.jpg"; //have to define names above
+            document.getElementById('message').innerHTML = "Keep giving them hell!";
+            console.log(randomDie1 +randomDie2);
+            console.log(alienHealth.value,actionPoints.value);
+
+        }else if(randomDie1 + randomDie1 <= 9){
+            userHealth.value -= 30;
+            a_actionPoints.value -= 5;
+            document.images.alienImage.src= "./Images/alien_winning.jpg";
+            document.getElementById('message').innerHTML = "You're getting attacked!";
+            console.log(userHealth.value,a_actionPoints.value);
+            console.log(randomDie1 +randomDie2);
+
+
+        }else if(randomDie1 + randomDie1 == 12){
+            userHealth.value += 30
+            alienHealth.value -= 75;
+            document.images.alienImage.src = "./Images/fighting_thealien.jpg";
+            document.getElementById('message').innerHTML = "The aliens missed! You got a chance to replenish your health and attack!";
+            console.log(userHealth.value,alienHealth.value);
+
+        }else if(randomDie1 + randomDie1 == 2){
+            userHealth.value -= 100;
+            actionPoints.value -= 10;
+            document.images.alienImage.src = "./Images/alien_winning.jpg";
+            document.getElementById('message').innerHTML = "You missed! You lost health and action points!";
+            console.log(userHealth.value,actionPoints.value);
+
+            //make new if-statements for new objects
+        } if(a_actionPoints.value <= 5){
+              a_actionPoints.value += 2;
+
+        }else if(a_actionPoints.value == 0){
+            document.images.alienImage.src = "./Images/rejoice.jpg";
+            document.getElementById('message').innerHTML = "The Aliens ran away! Rejoice!";
+
+        } if(alienHealth.value <= 0){
+            document.images.alienImage.src = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
+            document.getElementById('message').innerHTML = "You defeated the aliens and saved Earth!";
+            console.log("TEST1")
+
+        }else if(userHealth.value == 0){
+            document.images.alienImage.src = "./Images/you_died.jpg"; //have to define names above
+            document.getElementById('message').innerHTML = "GAME OVER! The Aliens are now experimenting on your corpse.";
+
+        }
+
+    }
+
+
+    function escapeFight(){
+        document.images.alienImage.src= "http://best-sci-fi-books.com/wp-content/uploads/2014/08/alien_invasion_600.jpg";
+        document.getElementById('message').innerHTML = "The Aliens have won! You have failed the human race, coward!";
+
+    }
+
+    function callHelp(){ //need a while loop for when action points are above 35
+
+        // actionPoints.value = 100;
+        // a_actionPoints.value = 30;
+        // alienHealth.value = 1000;
+        // userHealth.value = 500;
+      //
+        if(actionPoints.value >= 35){
+            alienHealth.value -= 400;
+            actionPoints.value -= 45;
+            document.images.alienImage.src= "./Images/woman_fighting.jpg";
+            document.getElementById('message').innerHTML = "Die, alien scum! You're welcome. Don't call again!";
+            console.log(alienHealth.value,actionPoints.value);
+        }else if(alienHealth.value == 0){
+          document.images.alienImage.src = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
+          document.getElementById('message').innerHTML = "You defeated the aliens and saved Earth!";
+        }else{
+            document.getElementById('message').innerHTML = "You don't have enough AP!";
+        }
+    }
+
+
+    function staminaPack(){
+        actionPoints.value = 50;
+        if(actionPoints.value <= 15){
+            actionPoints.value += 15;
+            document.getElementById('message').innerHTML = "You gained 15 Action Points!";
+            console.log(actionPoints.value);
+        }else{
+            document.getElementById('message').innerHTML = "You have enough AP!";
+        }
+    }
+
+    function healthPack(){
+      userHealth.value = 500;
+      if(userHealth.value <= 250){
+          userHealth.value += 50;
+          document.getElementById('message').innerHTML = "You gained 50 Health Points!";
+          console.log(userHealth.value);
+      }else{
+            document.getElementById('message').innerHTML = "You have enough Health!";
+
+      }
+
+
+    }
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
