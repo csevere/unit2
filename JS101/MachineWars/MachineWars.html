@@ -143,13 +143,8 @@
 
 
 
-
-
-
-
-
-
 <script type = "text/javascript">
+
      var alienHealth = document.getElementById("alienHealth");
      var actionPoints = document.getElementById("actionPoints");
      var userHealth = document.getElementById("userHealth");
@@ -162,7 +157,7 @@
      //
 
 
-    function rollDice(){ //broke
+    function rollDice(){
         //   console.log("The user clicked the Fight button") //sanity check
         //get a random number between 1 and 6
         var randomDie1 = Math.ceil(Math.random() * 6);
@@ -176,61 +171,66 @@
     // }
     //     actionPoints.value = 100;
     //     a_actionPoints.value = 30;
-    //     alienHealth.value = 1000;
+        alienHealth.value = 5;
     //     userHealth.value = 500;
-    // //
-
-        while((actionPoints.value > 0) && (a_actionPoints.value > 0)){
-
-          if(randomDie1 + randomDie2 > 8){
-              alienHealth.value -= 50;
-              actionPoints.value -= 5;
-              document.images.alienImage.src = "./Images/fighting_thealien.jpg"; //have to define names above
-              document.getElementById('message').innerHTML = "Keep giving them hell!";
-
-              console.log(alienHealth.value,actionPoints.value);
-
-          }else if(randomDie1 + randomDie1 < 8){
-              userHealth.value -= 30;
-                a_actionPoints.value -= 5;
-              document.images.alienImage.src= "./Images/alien_winning.jpg";
-              document.getElementById('message').innerHTML = "You're getting attacked!";
-              console.log(userHealth.value,a_actionPoints.value);
+  // //
+        if(actionPoints.value < 0){
+            userHealth.value -=25
+            document.images.alienImage.src= "./Images/alien_winning.jpg";
+            document.getElementById('message').innerHTML = "You don't have any action points! The aliens attacked you for 25 health points! Use a Stamina Pack!";
 
 
-          }else if(randomDie1 + randomDie1 == 12){
-              userHealth.value += 30
-              alienHealth.value -= 75;
-              document.images.alienImage.src = "./Images/fighting_thealien.jpg";
-              document.getElementById('message').innerHTML = "The aliens missed! You got a chance to replenish your health and attack!";
-              console.log(userHealth.value,alienHealth.value);
+        }else if(randomDie1 + randomDie2 >= 8){
+            alienHealth.value -= 50;
+            actionPoints.value -= 5;
+            document.images.alienImage.src = "./Images/fighting_thealien.jpg"; //have to define names above
+            document.getElementById('message').innerHTML = "Keep giving them hell!";
+            console.log(randomDie1 +randomDie2);
+            console.log(alienHealth.value,actionPoints.value);
 
-          }else if(randomDie1 + randomDie1 == 2){
-              userHealth.value -= 100;
-              actionPoints.value -= 10;
-              document.images.alienImage.src = "./Images/alien_winning.jpg";
-              document.getElementById('message').innerHTML = "You missed! You lost health and action points!";
-              console.log(userHealth.value,actionPoints.value);
+        }else if(randomDie1 + randomDie1 <= 9){
+            userHealth.value -= 30;
+            a_actionPoints.value -= 5;
+            document.images.alienImage.src= "./Images/alien_winning.jpg";
+            document.getElementById('message').innerHTML = "You're getting attacked!";
+            console.log(userHealth.value,a_actionPoints.value);
+            console.log(randomDie1 +randomDie2);
 
-          }else if(alienHealth.value <= 0){
+
+        }else if(randomDie1 + randomDie1 == 12){
+            userHealth.value += 30
+            alienHealth.value -= 75;
+            document.images.alienImage.src = "./Images/fighting_thealien.jpg";
+            document.getElementById('message').innerHTML = "The aliens missed! You got a chance to replenish your health and attack!";
+            console.log(userHealth.value,alienHealth.value);
+
+        }else if(randomDie1 + randomDie1 == 2){
+            userHealth.value -= 100;
+            actionPoints.value -= 10;
+            document.images.alienImage.src = "./Images/alien_winning.jpg";
+            document.getElementById('message').innerHTML = "You missed! You lost health and action points!";
+            console.log(userHealth.value,actionPoints.value);
+
+            //make new if-statements for new objects
+        } if(a_actionPoints.value <= 5){
+              a_actionPoints.value += 2;
+
+        }else if(a_actionPoints.value == 0){
+            document.images.alienImage.src = "./Images/rejoice.jpg";
+            document.getElementById('message').innerHTML = "The Aliens ran away! Rejoice!";
+
+        } if(alienHealth.value <= 0){
             document.images.alienImage.src = "http://www.newsarama.com/images/i/000/180/703/i02/ALDO-Cover.jpg";
             document.getElementById('message').innerHTML = "You defeated the aliens and saved Earth!";
+            console.log("TEST1")
 
-          }else if((userHealth.value == 0) || (actionPoints.value <=0)){
-              document.images.alienImage.src = "./Images/you_died.jpg"; //have to define names above
-              document.getElementById('message').innerHTML = "GAME OVER! The Aliens are now experimenting on your corpse.";
+        }else if(userHealth.value == 0){
+            document.images.alienImage.src = "./Images/you_died.jpg"; //have to define names above
+            document.getElementById('message').innerHTML = "GAME OVER! The Aliens are now experimenting on your corpse.";
 
-          }else if(a_actionPoints.value <= 10){
-                a_actionPoints.value += 10;
-
-          }else if(a_actionPoints.value == 0){
-              document.images.alienImage.src = "./Images/rejoice.jpg";
-              document.getElementById('message').innerHTML = "The Aliens ran away! Rejoice!";
-          }
-
-          break;
         }
-      }
+
+    }
 
 
     function escapeFight(){
