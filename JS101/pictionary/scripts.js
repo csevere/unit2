@@ -102,9 +102,10 @@ function changeBG(){
 
 function startEasy(){
 
-    var oneMinute = 60 * 3;
+    var oneMinute = 60 * 1;
     display = document.querySelector('#time');
     startTimer(oneMinute, display);
+    clearInterval(oneMinute);
 
 
     var wordList = [
@@ -130,6 +131,7 @@ function startFair(){
     var oneMinute = 60 * 3;
     display = document.querySelector('#time');
     startTimer(oneMinute, display);
+    clearInterval(oneMinute);
 
 
     var wordList = [
@@ -153,6 +155,7 @@ function startHard(){
     var someMinutes = 60 * 3;
     display = document.querySelector('#time');
     startTimer(someMinutes, display);
+    clearInterval(oneMinute);
 
 
     var wordList = [
@@ -173,6 +176,9 @@ function startHard(){
 
 function clearBox(){
     document.getElementById('message1').innerHTML = "start";
+    document.getElementById('message2').innerHTML = "Instructions";
+
+
 }
 
 function startTimer(duration, display) {
@@ -190,10 +196,12 @@ function startTimer(duration, display) {
             timer = duration;
         }
     }, 1000);
+    clearInterval(timer);
+
 }
 
 
-var doAdd = function() {
+var doSnapshot = function() {
     html2canvas(document.getElementById("canvas"), {
         onrendered: function (canvas) {
             var tempcanvas=document.createElement('canvas');
@@ -209,6 +217,29 @@ var doAdd = function() {
     });
 
 }
+
+function howTo(){
+  document.getElementById('message2').innerHTML = "First, choose your level of difficulty." + " Second, draw as many pictures from the word box as you can under three minutes."+" After you've finished drawing the picture, click 'Add' to get the picture stored."+ " Next, ask a friend to click on 'Challenge Friend' to see how many of your pictures they can guess.";
+
+}
+
+function clearPic(){
+      context.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

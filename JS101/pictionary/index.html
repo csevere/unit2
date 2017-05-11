@@ -20,6 +20,7 @@
                   <input type = "color"  id = "color-picker"/>
                   <label>Choose marker thickness</label>
                   <input type = "number" id = "thickness" placeholder ="10"/>
+                    <button class = "btn-default3" onclick = "howTo();">How to Play</button>
                 </div>
           </div>
       </div>
@@ -38,6 +39,7 @@
                     <span class = "seconds"></span>
                     <span class = "smalltext">Timer</span>
                 </div>
+
               </div>
               <div class = "col-md-2 left">
                   <button class = "btn btn-default" onclick = "changeBG();">Change Background</button>
@@ -60,23 +62,21 @@
                   <div id = "message1">Word Box</div>
                   <button class = "btn btn-default2" onclick = "doAdd();" >Add</button>
                   <button class = "btn btn-default2" >Review</button>
-                  <button class = "btn btn-default2" onclick = "clearBox();">ClearBox</button>
+                  <button class = "btn btn-default2" onclick = "clearBox();">Clear Boxes</button>
+                  <button class = "btn btn-default2" id = "camera" onclick = "doSnapshot();" >Snapshot</button>
 
               </div>
       </div>
     </div>
 
     <div class = "row">
-      <div class = "col-sm-12 footer">
-        <h4>How to Play</h4>
-        <p>First, choose your level of difficulty.
-        Second, draw as many pictures from the word box as you can under three minutes.
-        After you've finished drawing the picture, click 'Add' to get the picture stored.
-        Next, ask a friend to click on 'Challenge Friend' to see how many of your pictures they can guess.
-      </p>
-      </div>
-
+        <div class = "col-sm-12 footer">
+          <button class = "btn btn-default4" onclick = "clearPic();">Clear Picture</button>
+          <div id = "message2">Instructions</div>
+        </div>
     </div>
+
+
 
 
 

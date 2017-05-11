@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style type="text/css" media ="screen">
 
+      * {
+        box-sizing: border-box;
+      }
+
 
         .header{
           border-bottom: 2px solid black;
@@ -41,8 +45,6 @@
             word-spacing: 19px;
             font-weight: bold;
             font-size: 14px;
-
-
         }
 
         .account{
@@ -55,8 +57,6 @@
             word-spacing: 35px;
             font-weight: bold;
             font-size: 16px;
-
-
         }
 
         .container2{
@@ -68,33 +68,48 @@
             background-color: gray;
             float: left;
         }
-        .thumbnail1,.thumbnail2,.thumbnail3{
-            float:left;
-            margin-bottom: 25px;
-            margin-left: 39px;
+
+        .mainpic{
+          position: relative;
+          bottom: 12px;
 
         }
+
+         #featured {
+          position: relative;
+          left: 18px;
+          bottom: 8px;
+        }
+
+
+
+        .xpic1, .ypic2, .zpic3{
+          float: left;
+          margin-left: 62px;
+          margin-bottom: 18px;
+        }
+
+
 
         .info1, .info2, .info3{
             font-size: 12px;
             position: relative;
-            text-align: justify;
-
+            text-align: left;
         }
 
         .info1{
           position: relative;
-          bottom: -19px;
+          bottom: -13px;
         }
 
         .info2{
           position: relative;
-          bottom: -63px;
+          bottom: -30px;
         }
 
         .info3{
           position: relative;
-          bottom: -105px;
+          bottom: -55px;
         }
 
         .popup{
@@ -150,17 +165,21 @@
           font-size: 16px;
         }
 
-        @media only screen and (max-width: 768px) {
-          #left-rail{
-            width: 100%;
+        /*@media only screen and (max-width: 768px){
+
+          .main{
+              float: left;
+              width: 50%;
           }
-          #right-rail{
-            width:100%;
-            height: 100px;
-            margin-top: 300px;
+
+          .xpic1, .ypic2, .zpic3{
+              float: left;
+              width: 100%;
 
           }
-        }
+
+
+        }*/
 
     </style>
 
@@ -225,22 +244,25 @@
           <div class = "container2">
             <div class = "row lgmain">
                   <div class = "col-md-9 main">
-                      <h4>Featured</h4>
+
+                      <div id ="featured">
+                          <h4>Featured</h4>
+                      </div>
 
                       <div class = "col-md-7 mainpic">
                         <img src="./images/mainpic.png"/>
                       </div>
 
 
-                      <div class = "col-sm-2 thumbnail1">
+                      <div class = "col-md-2 xpic1">
                          <img src="./images/thumbnail1002.png"/>
                       </div>
 
-                      <div class = "col-sm-2 thumbnail2">
+                      <div class = "col-md-2 ypic2">
                          <img src="./images/thumbnail1003.png"/>
                       </div>
 
-                      <div class = "col-sm-2 thumbnail3">
+                      <div class = "col-md-2 zpic3">
                          <img src="./images/thumnail1001.png"/>
                       </div>
 
