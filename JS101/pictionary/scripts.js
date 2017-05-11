@@ -101,6 +101,12 @@ function changeBG(){
 }
 
 function startEasy(){
+
+    var oneMinute = 60 * 3;
+    display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+
+
     var wordList = [
         "cat",
         " skateboard",
@@ -113,44 +119,127 @@ function startEasy(){
         " tree",
         " cookie"
     ];
+
+    document.getElementById('message1').innerHTML = [wordList];
+}
+
+
+
+function startFair(){
+
+    var oneMinute = 60 * 3;
+    display = document.querySelector('#time');
+    startTimer(oneMinute, display);
+
+
+    var wordList = [
+        "frog",
+        " pinwheel",
+        " lightsaber",
+        " cowboy",
+        " pirate",
+        " nature",
+        " garbage",
+        " teapot",
+        " America",
+        " bicycle"
+    ];
     document.getElementById('message1').innerHTML = [wordList];
 
 }
 
-function startFair(){
-  var wordList = [
-      "frog",
-      " pinwheel",
-      " lightsaber",
-      " cowboy",
-      " pirate",
-      " nature",
-      " garbage",
-      " teapot",
-      " America",
-      " bicycle"
-  ];
-  document.getElementById('message1').innerHTML = [wordList];
-
-}
-
 function startHard(){
-  var wordList = [
-      "jungle",
-      " retail",
-      " glitter",
-      " vegetarian",
-      " commercial",
-      " jazz",
-      " braid",
-      " mad scientist",
-      " owl",
-      " myth"
-  ];
-  document.getElementById('message1').innerHTML = [wordList];
+
+    var someMinutes = 60 * 3;
+    display = document.querySelector('#time');
+    startTimer(someMinutes, display);
+
+
+    var wordList = [
+        "jungle",
+        " retail",
+        " glitter",
+        " vegetarian",
+        " commercial",
+        " jazz",
+        " braid",
+        " mad scientist",
+        " owl",
+        " myth"
+    ];
+    document.getElementById('message1').innerHTML = [wordList];
 
 }
 
 function clearBox(){
     document.getElementById('message1').innerHTML = "start";
 }
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+
+var doAdd = function() {
+    html2canvas(document.getElementById("canvas"), {
+        onrendered: function (canvas) {
+            var tempcanvas=document.createElement('canvas');
+            tempcanvas.width=500;
+            tempcanvas.height=500;
+            var context=tempcanvas.getContext('2d');
+            context.drawImage(canvas,112,0,500,500,0,0,500,500);
+            var link=document.createElement("a");
+            link.href=tempcanvas.toDataURL('image/jpg');   //function blocks CORS
+            link.download = 'screenshot.jpg';
+            link.click();
+        }
+    });
+
+}
+
+
+
+//
+// window.onload = function () {
+//     var fiveMinutes = 60 * 5,
+//         display = document.querySelector('#time');
+//     startTimer(fiveMinutes, display);
+// };
+
+
+
+// function createCountDown(timeRemaining) {
+//     var startTime = Date.now();
+//     return function() {
+//        return timeRemaining - ( Date.now() - startTime );
+//     }
+// }
+//
+// // creating a coundown, at stage start
+// var currentCountDown = createCountDown(60000); // 60 seconds countdown
+//
+// //... during the game, just use with :
+// var countDownValue = currentCountDown();
+
+
+
+
+
+// creating a coundown, at stage start
+
+
+//... during the game, just use with :
+// var countDownValue = currentCountDown();

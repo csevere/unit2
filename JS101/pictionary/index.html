@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type ="text/css" href="styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Inknut+Antiqua|Ravi+Prakash" rel="stylesheet">
 
   </head>
 
@@ -32,12 +33,22 @@
 
     <div class = "row">
       <div class = "col-lg-12 main">
+              <div id = "time">
+                <div class = "time-unit">
+                    <span class = "seconds"></span>
+                    <span class = "smalltext">Timer</span>
+                </div>
+              </div>
               <div class = "col-md-2 left">
                   <button class = "btn btn-default" onclick = "changeBG();">Change Background</button>
                   <button class = "btn btn-default" onclick = "startEasy();">Easy</button>
                   <button class = "btn btn-default" onclick = "startFair();">Fair</button>
                   <button class = "btn btn-default" onclick = "startHard();">Hard</button>
                   <button class = "btn btn-default" onclick = "startFriend();">Challenge Friend</button>
+                  <form>
+                    <p2>Enter Your Guess:<br></p2>
+                    <input type="text" id = "form" name="guess"><br>
+                  </form>
               </div>
 
               <div class = "col-sm-8 thecanvas">
@@ -47,7 +58,7 @@
 
               <div class = "col-md-2 right">
                   <div id = "message1">Word Box</div>
-                  <button class = "btn btn-default2" >Done</button>
+                  <button class = "btn btn-default2" onclick = "doAdd();" >Add</button>
                   <button class = "btn btn-default2" >Review</button>
                   <button class = "btn btn-default2" onclick = "clearBox();">ClearBox</button>
 
@@ -59,8 +70,8 @@
       <div class = "col-sm-12 footer">
         <h4>How to Play</h4>
         <p>First, choose your level of difficulty.
-        Second, draw as many pictures from the word box as you can under one minute.
-        After you've finished drawing the picture, click 'Done' to get the picture stored.
+        Second, draw as many pictures from the word box as you can under three minutes.
+        After you've finished drawing the picture, click 'Add' to get the picture stored.
         Next, ask a friend to click on 'Challenge Friend' to see how many of your pictures they can guess.
       </p>
       </div>
@@ -87,7 +98,7 @@
 
 
       <!-- //javascript tag has to go after the canvas id -->
-      <script type="text/javascript" src = "scripts.js"></script>
+
 
 </container>
 
@@ -114,7 +125,10 @@
 </script> -->
 
 
-
+  <script type="text/javascript" src = "scripts.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
   </body>
 </html>
