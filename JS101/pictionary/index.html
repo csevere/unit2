@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas Pictionary</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type ="text/css" href="styles.css"/>
+
+  </head>
+
+
+  <body>
+
+    <container>
+      <div class = "row">
+          <div class = "col-md-12 header">
+                <div id = "toolbar" class = "text-center">
+                  <label>Choose marker color</label>
+                  <input type = "color"  id = "color-picker"/>
+                  <label>Choose marker thickness</label>
+                  <input type = "number" id = "thickness" placeholder ="10"/>
+                </div>
+          </div>
+      </div>
+
+      <div id = "background-wrap">
+        <div class = "img-center">
+            <img src = "./Images/p1.jpg" id = "bg" alt ="" name = "bkImage1"/>
+            <img src = "./Images/p2.jpg" id = "bg" alt ="" name = "bkImage2"/>
+        </div>
+      </div>
+
+    <div class = "row">
+      <div class = "col-lg-12 main">
+              <div class = "col-md-2 left">
+                  <button class = "btn btn-default" onclick = "changeBG();">Change Background</button>
+                  <button class = "btn btn-default" onclick = "startEasy();">Easy</button>
+                  <button class = "btn btn-default" onclick = "startFair();">Fair</button>
+                  <button class = "btn btn-default" onclick = "startHard();">Hard</button>
+                  <button class = "btn btn-default" onclick = "startFriend();">Challenge Friend</button>
+              </div>
+
+              <div class = "col-sm-8 thecanvas">
+                      <h1>PICTO DASH!</h1>
+                      <canvas id = "canvas"  height ="500px" width = "700px"></canvas>
+              </div>
+
+              <div class = "col-md-2 right">
+                  <div id = "message1">Word Box</div>
+                  <button class = "btn btn-default2" >Done</button>
+                  <button class = "btn btn-default2" >Review</button>
+                  <button class = "btn btn-default2" onclick = "clearBox();">ClearBox</button>
+
+              </div>
+      </div>
+    </div>
+
+    <div class = "row">
+      <div class = "col-sm-12 footer">
+        <h4>How to Play</h4>
+        <p>First, choose your level of difficulty.
+        Second, draw as many pictures from the word box as you can under one minute.
+        After you've finished drawing the picture, click 'Done' to get the picture stored.
+        Next, ask a friend to click on 'Challenge Friend' to see how many of your pictures they can guess.
+      </p>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- "startEasy();"
+        "startFair();"
+        "startHard();" -->
+
+
+
+
+
+      <!-- //javascript tag has to go after the canvas id -->
+      <script type="text/javascript" src = "scripts.js"></script>
+
+</container>
+
+
+<!-- <script type = "text/javascript">
+
+    function changeBG(){
+
+      var bkImage1 = Math.ceil(Math.random() * 5);
+      var bkImage2 = Math.ceil(Math.random() * 5);
+
+      var image1 = "./Images/p" + bkImage1 + ".jpg";
+      var image2 = "./Images/p" + bkImage2 + ".jpg";
+
+
+      document.images.bkImage1.src = image1;
+      document.images.bkImage2.src = image2;
+    }
+
+
+
+
+
+</script> -->
+
+
+
+
+  </body>
+</html>

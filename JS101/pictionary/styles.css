@@ -1,0 +1,100 @@
+h1{
+  color: white;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+  font-family: 'Ravi Prakash', cursive;
+}
+
+
+#bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*preserve aspect ration */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+
+
+}
+
+#canvas{
+  border: solid 5px black;
+  background-color: white;
+  position: relative;
+  left: 5%;
+  top: 40px;
+}
+
+
+
+#toolbar{
+  background-color: green;
+  color: white;
+
+}
+
+.right{
+  color: white;
+}
+
+ .btn-default{
+  display:block;
+  background-color:green;
+  color: white;
+  font-size: 20px;
+  border: 4px solid green;
+  margin: 30px;
+  top: 40px;
+  position: relative;
+  top: 132px;
+}
+
+
+.btn-default2{
+  display:block;
+  background-color:green;
+  color: white;
+  font-size: 20px;
+  border: 4px solid green;
+  margin: 30px;
+  position: relative;
+  top: 188px;
+  right: 116px;
+  }
+
+
+#message1{
+  color: white;
+  font-size: 20px;
+  display:block;
+  position:relative;
+  background-color: rgba(0, 255, 0, .4);
+  height: 150px;
+  font-weight: bold;
+  text-align: center;
+  top: 195px;
+  right: 80px;
+}
+
+.footer{
+  height: 34%;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  display:block;
+  position:relative;
+  background-color: green;
+  position:relative;
+  top: 40px;
+  padding-left: 40px;
+
+
+}
+
+
+
+#thickness{
+  width: 39px;
+}
