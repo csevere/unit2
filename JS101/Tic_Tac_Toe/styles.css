@@ -1,0 +1,100 @@
+#title{
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 60px;
+  background-color: rgba(20, 9,9,.3);
+}
+
+#button1{
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  position:relative;
+  right: 40px;
+  top: 35px; 
+
+
+}
+
+#bg{
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*preserve aspect ration */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+#board{
+  max-width:640px;
+  min-width: 320px;
+  float: none;
+  margin: auto;
+}
+
+.square{
+  background-color:rgba(20, 9,9,.3);
+	border: 2px solid #000;
+	outline: none;
+	width: 30%;
+	/* padding: 30px 0; */
+	font-size: 80px;
+	height: 185px;
+	width: 185px;
+
+}
+
+#p1{
+  position: absolute;
+  left:-117px;
+  top: 50px;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 25px;
+}
+
+#p2{
+  position: absolute;
+  right: -56px;
+  top: 50px;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 25px;
+
+}
+
+p{
+  color: white;
+  font-weight: bold;
+  font-family: 'Archivo Black', sans-serif;
+
+
+}
+
+.square:hover{
+  background-color:rgba(20, 9,9,.5);
+
+}
+
+.winning-square{
+  background-color: green !important;
+  color: red !important;
+
+}
+
+.count{
+  min-height: 20px;
+  color: white;
+  font-size: 'Archivo Black', sans-serif;
+
+}
+
+#message{
+	min-height: 30px;
+  color: white;
+  font-family: 'Archivo Black', sans-serif;
+
+
+}
